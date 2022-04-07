@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration
+PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration> 
+
+    <session-factory name="session-pmb">
+
+        <property name="hibernate.connection.url">jdbc:jtds:sqlserver://servidorbd/BD_baprodutiva;</property>
+        <property name="hibernate.connection.username">user_baprodutiva</property>
+        <property name="hibernate.connection.password">End74iutjhnf</property>
+
+        <!--        <property name="hibernate.connection.url">jdbc:jtds:sqlserver://subauma/bd_baprodutiva;</property>
+        <property name="hibernate.connection.username">desenvolvimento</property>
+        <property name="hibernate.connection.password">ntoflem</property>-->
+        
+        
+        <property name="hibernate.connection.driver_class">net.sourceforge.jtds.jdbc.Driver</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property>
+        <property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
+        <property name="hibernate.show_sql">false</property>
+        <property name="hibernate.format_sql">false</property>
+        
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        
+        <property name="c3p0.acquire_increment">4</property>
+        <property name="c3p0.idle_test_period">300</property>
+        <property name="c3p0.max_size">20</property>
+        <property name="c3p0.max_statements">100</property>
+        <property name="c3p0.min_size">3</property>
+        <property name="c3p0.timeout">180000</property>
+        
+        <mapping class="br.org.flem.baprodutiva.negocio.Categoria" />
+        <mapping class="br.org.flem.baprodutiva.negocio.SubCategoria" />
+        <!--mapping class="br.org.flem.baprodutiva.negocio.Custo" /-->
+        <mapping class="br.org.flem.baprodutiva.negocio.Receita" />
+        <mapping class="br.org.flem.baprodutiva.negocio.Fonte" />
+        <mapping class="br.org.flem.baprodutiva.negocio.GrupoTipoFonte" />
+        <mapping class="br.org.flem.baprodutiva.negocio.Origem" />
+        <mapping class="br.org.flem.baprodutiva.negocio.Contrato" />
+        <mapping class="br.org.flem.baprodutiva.negocio.Parcela" />
+        <mapping class="br.org.flem.baprodutiva.negocio.Aditivo" />
+
+        <mapping class="br.org.flem.baprodutiva.negocio.Arquivo" />
+        <!--mapping class="br.org.flem.baprodutiva.negocio.Produto" /-->
+        <mapping class="br.org.flem.baprodutiva.negocio.TipoFonte" />
+        <mapping class="br.org.flem.baprodutiva.negocio.FonteArquivo" />
+
+        <mapping class="br.org.flem.baprodutiva.negocio.FinanceiroPrevisto" />
+        <!--mapping class="br.org.flem.baprodutiva.negocio.FisicoPrevisto" /-->
+        <!--mapping class="br.org.flem.baprodutiva.negocio.FisicoExecutado" /-->
+        <mapping class="br.org.flem.baprodutiva.negocio.OrgaoResponsavel" />
+
+        <!--mapping class="br.org.flem.baprodutiva.negocio.Periodo" /-->
+        <mapping class="br.org.flem.baprodutiva.negocio.EntidadeExecutora" />
+        <mapping class="br.org.flem.baprodutiva.negocio.UnidadeMedida" />
+        
+        <mapping class="br.org.flem.baprodutiva.negocio.Internalizacao" />
+        <mapping class="br.org.flem.baprodutiva.negocio.InternalizacaoDevolucao" />
+        <mapping class="br.org.flem.baprodutiva.negocio.InternalizacaoLoteBancario" />
+        <mapping class="br.org.flem.baprodutiva.negocio.InternalizacaoAplicacaoFinanceira" />
+        <mapping class="br.org.flem.baprodutiva.negocio.Pedido" />
+        <mapping class="br.org.flem.baprodutiva.negocio.CompositeIF" />
+        <mapping class="br.org.flem.baprodutiva.negocio.CompositeABS" />
+        <mapping class="br.org.flem.baprodutiva.negocio.CompositeFolha" />
+        <mapping class="br.org.flem.baprodutiva.negocio.CompositeNo" />
+        <mapping class="br.org.flem.baprodutiva.negocio.CompositeNoAtividade" />
+        
+        <mapping class="br.org.flem.baprodutiva.negocio.DespesaInelegivel" />
+        <mapping class="br.org.flem.baprodutiva.negocio.DespesaAplicacaoFinanceira" />
+        <mapping class="br.org.flem.baprodutiva.negocio.DespesaDataExibicao" />
+        <mapping class="br.org.flem.baprodutiva.negocio.DespesaOrdenada" />
+        <mapping class="br.org.flem.baprodutiva.negocio.CorrecaoValor" />
+        <mapping class="br.org.flem.baprodutiva.negocio.CorrecaoCC" />
+        <mapping class="br.org.flem.baprodutiva.negocio.CorrecaoNome" />
+        <mapping class="br.org.flem.baprodutiva.negocio.LancamentoAvulso" />
+        <mapping class="br.org.flem.baprodutiva.negocio.Planejamento"/>
+        <mapping class="br.org.flem.baprodutiva.negocio.LoteDespesaAplicacao" />
+        <mapping class="br.org.flem.baprodutiva.negocio.AtividadeNovaDescricao" />        
+        <mapping class="br.org.flem.baprodutiva.negocio.RateioCentroCusto" /> 
+        <mapping class="br.org.flem.baprodutiva.negocio.PlanejadoComponente" /> 
+        <mapping class="br.org.flem.baprodutiva.negocio.TransferenciaBancaria" />
+        
+    </session-factory>
+</hibernate-configuration>
+

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"  ?>
+<!-- Created with iReport - A designer for JasperReports -->
+<!DOCTYPE jasperReport PUBLIC "//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+<jasperReport
+		 name="folharesumo"
+		 columnCount="1"
+		 printOrder="Vertical"
+		 orientation="Landscape"
+		 pageWidth="842"
+		 pageHeight="595"
+		 columnWidth="842"
+		 columnSpacing="0"
+		 leftMargin="0"
+		 rightMargin="0"
+		 topMargin="0"
+		 bottomMargin="0"
+		 whenNoDataType="NoPages"
+		 isTitleNewPage="false"
+		 isSummaryNewPage="false">
+	<property name="ireport.scriptlethandling" value="0" />
+	<property name="ireport.encoding" value="UTF-8" />
+	<import value="java.util.*" />
+	<import value="net.sf.jasperreports.engine.*" />
+	<import value="net.sf.jasperreports.engine.data.*" />
+
+	<parameter name="numeroSaque" isForPrompting="false" class="java.lang.String"/>
+	<parameter name="subRelatorio" isForPrompting="false" class="java.lang.String"/>
+	<queryString><![CDATA[SELECT pih1.payih_ref_tp, REPLACE(pih1.payih_apd_amt / 100, '.', ',') AS Valor, 
+REPLACE(pih1.payih_liq_doc_amt / 100, '.', ',') AS ValorBase, pih1.payih_ce2 AS cc2, pih1.payih_pay_dt AS dt_pag 
+FROM obvius.payih pih1 
+INNER JOIN 
+obvius.entdf ON obvius.entdf.entdf_id = pih1.payih_ent_id 
+WHERE  (pih1.payih_pay_dt > 20080000) 
+AND (pih1.payih_st = '4') 
+AND (pih1.payih_ce2 LIKE '20257%')]]></queryString>
+
+	<field name="categoria" class="java.lang.String"/>
+	<field name="folhasResumo" class="java.util.Collection"/>
+
+
+		<group  name="categoria" isStartNewPage="true" >
+			<groupExpression><![CDATA[$F{categoria}]]></groupExpression>
+			<groupHeader>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+			</groupHeader>
+			<groupFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+			</groupFooter>
+		</group>
+		<background>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</background>
+		<title>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</title>
+		<pageHeader>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</pageHeader>
+		<columnHeader>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</columnHeader>
+		<detail>
+			<band height="12"  isSplitAllowed="true" >
+				<subreport  isUsingCache="false">
+					<reportElement
+						x="0"
+						y="0"
+						width="842"
+						height="12"
+						key="subreport-1"/>
+					<subreportParameter  name="numeroSaque">
+						<subreportParameterExpression><![CDATA[$P{numeroSaque}]]></subreportParameterExpression>
+					</subreportParameter>
+					<subreportParameter  name="categoria">
+						<subreportParameterExpression><![CDATA[$F{categoria}]]></subreportParameterExpression>
+					</subreportParameter>
+					<dataSourceExpression><![CDATA[new JRBeanCollectionDataSource($F{folhasResumo})]]></dataSourceExpression>
+					<subreportExpression  class="java.lang.String"><![CDATA[$P{subRelatorio}]]></subreportExpression>
+				</subreport>
+			</band>
+		</detail>
+		<columnFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</columnFooter>
+		<pageFooter>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</pageFooter>
+		<summary>
+			<band height="0"  isSplitAllowed="false" >
+			</band>
+		</summary>
+</jasperReport>

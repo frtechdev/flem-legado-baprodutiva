@@ -1,0 +1,841 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+    <form-beans>
+        
+        <form-bean name="planejamentoForm" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="id" type="java.lang.String" />
+            <form-property name="dataInicial" type="java.lang.String" />
+            <form-property name="dataFinal" type="java.lang.String" />
+            <form-property name="descricao" type="java.lang.String" />
+            <form-property name="ativo" type="java.lang.String" />
+            <form-property name="subPlanejamento" type="java.lang.String" />
+
+        </form-bean>
+
+        <form-bean name="validacaoForm" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="id" type="java.lang.String" />
+            <form-property name="atividade" type="java.lang.String" />
+            <form-property name="subatividade" type="java.lang.String" />
+            <form-property name="dataInicial" type="java.lang.String" />
+            <form-property name="dataFinal" type="java.lang.String" />
+            <form-property name="valor" type="java.lang.String" />
+        </form-bean>
+
+        <form-bean name="categoriaForm" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="id" type="java.lang.String" />
+            <form-property name="descricao" type="java.lang.String" />
+            <form-property name="planejado" type="java.lang.String"/>
+            <form-property name="planejadoReal" type="java.lang.String"/>
+            <form-property name="origemId" type="java.lang.String"/>
+        </form-bean>
+  
+        <form-bean name="subcategoriaForm" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="id" type="java.lang.String" />
+            <form-property name="descricao" type="java.lang.String" />
+            <form-property name="categoriaId" type="java.lang.String" />
+            <form-property name="categorias" type="java.lang.String" />
+        </form-bean>      
+     
+        
+
+
+        <form-bean name="componenteForm" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="id" type="java.lang.String" />
+            <form-property name="descricao" type="java.lang.String" />
+            <form-property name="subProjetos" type="java.lang.String" />
+            <form-property name="gefPlanejado" type="java.lang.String"/>
+        </form-bean>
+
+        <form-bean name="subComponenteForm" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="id" type="java.lang.String" />
+            <form-property name="descricao" type="java.lang.String" />
+            <form-property name="componenteId" type="java.lang.String" />
+            <form-property name="componenteIdFiltro" type="java.lang.String" />
+            <form-property name="gefPlanejado" type="java.lang.String"/>
+        </form-bean>
+
+        <form-bean name="compromissoForm" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="id" type="java.lang.String" />
+            <form-property name="tipo" type="java.lang.String" />
+            <form-property name="valor" type="java.lang.String" />
+            <form-property name="data" type="java.lang.String" />
+            <form-property name="descricao" type="java.lang.String" />
+            <form-property name="nomeFornecedor" type="java.lang.String" />
+            <form-property name="numeroContrato" type="java.lang.String" />
+            <form-property name="numeroClienteConnect" type="java.lang.String" />
+            <form-property name="numero" type="java.lang.String" />
+            <form-property name="parcela" type="java.lang.String" />
+            <form-property name="centroCusto" type="java.lang.String" />
+            <form-property name="codigoFornecedor" type="java.lang.String" />
+            <form-property name="imposto" type="java.lang.String" />
+            <form-property name="apdId" type="java.lang.String" />
+            <form-property name="apdTp" type="java.lang.String" />
+            <form-property name="seqLinha" type="java.lang.String" />
+            <form-property name="recibo" type="java.lang.String" />
+            <form-property name="dataFim" type="java.lang.String" />
+        </form-bean>
+
+        <form-bean name="subProjetoForm" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="id" type="java.lang.String" />
+            <form-property name="descricao" type="java.lang.String" />
+            <form-property name="componenteId" type="java.lang.String" />
+            <form-property name="tipoSubProjetoId" type="java.lang.String" />
+        </form-bean>
+        
+        <form-bean name="atividadeForm" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="id" type="java.lang.String" />
+            <form-property name="descricao" type="java.lang.String" />
+            <form-property name="categoriaId" type="java.lang.String" />
+            <form-property name="categoriaIdFiltro" type="java.lang.String" />
+            <form-property name="componenteId" type="java.lang.String" />
+            <form-property name="componenteIdFiltro" type="java.lang.String" />
+            <form-property name="subComponenteId" type="java.lang.String" />
+            <form-property name="subComponenteIdFiltro" type="java.lang.String" />
+            <form-property name="origemIdFiltro" type="java.lang.String" />
+                        <form-property name="centroCusto" type="java.lang.String[]" />
+            <form-property name="centroCustos" type="java.lang.String" />
+        </form-bean>
+
+        <form-bean name="subAtividadeForm" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="id" type="java.lang.String" />
+            <form-property name="descricao" type="java.lang.String" />
+            <form-property name="observacao" type="java.lang.String" />
+            <form-property name="categoriaId" type="java.lang.String" />
+            <form-property name="componenteId" type="java.lang.String" />
+            <form-property name="categoriaIdFiltro" type="java.lang.String" />
+            <form-property name="subcategoriaIdFiltro" type="java.lang.String" />
+            <form-property name="atividadeId" type="java.lang.String" />
+            <form-property name="atividadeIdFiltro" type="java.lang.String" />
+            <form-property name="centroCusto" type="java.lang.String[]" />
+            <form-property name="centroCustoMarcadosCat" type="java.lang.String[]" />
+            <form-property name="ano" type="java.lang.String" />
+            <form-property name="entidades" type="java.lang.String[]" />
+            <form-property name="orgaos" type="java.lang.String[]" />
+            <form-property name="ccCompartilhado" type="java.lang.String" />
+            <form-property name="planejamentoId" type="java.lang.String" />
+            <form-property name="subcategoriaId" type="java.lang.String" />
+            <form-property name="subcategoria" type="java.lang.String" />
+
+            
+        </form-bean>
+
+        <form-bean name="produtoForm" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="id" type="java.lang.String" />
+            <form-property name="descricao" type="java.lang.String" />
+            <form-property name="subAtividadeId" type="java.lang.String" />
+            <form-property name="subAtividadeIdFiltro" type="java.lang.String" />
+            <form-property name="unidadeMedidaId" type="java.lang.String" />
+            <form-property name="meta" type="java.lang.String" />
+            <!-- Atributos do Planejemento Físico-->
+            <form-property name="planejamentoId" type="java.lang.String" />
+            <form-property name="periodoId" type="java.lang.String" />
+            <form-property name="porcentagem" type="java.lang.String" />
+            <form-property name="descricaoPlanejamento" type="java.lang.String" />
+            <form-property name="produtoId" type="java.lang.String" />
+        </form-bean>
+
+        <form-bean name="planejamentoFinanceiroForm" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="id" type="java.lang.String" />
+            <form-property name="valorGef" type="java.lang.String" />
+            <form-property name="planejamento" type="java.lang.String" />
+            <form-property name="planejamentos" type="java.lang.String" />
+            <form-property name="planejamentoId" type="java.lang.String" />
+            <form-property name="valorComunidade" type="java.lang.String" />
+            <form-property name="valor" type="java.lang.String" />
+            <form-property name="data" type="java.lang.String" />
+        </form-bean>
+
+        <form-bean name="planejamentoFisicoForm" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="id" type="java.lang.String" />
+            <form-property name="porcentagem" type="java.lang.String" />
+            <form-property name="descricao" type="java.lang.String" />
+            <form-property name="produtoId" type="java.lang.String" />
+            <form-property name="descricaoPlanejamento" type="java.lang.String" />
+        </form-bean>
+
+        <form-bean name="grupoTipoFonteForm" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="id" type="java.lang.String" />
+            <form-property name="descricao" type="java.lang.String" />
+        </form-bean>
+
+        <form-bean name="unidadeMedidaForm" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="id" type="java.lang.String" />
+            <form-property name="descricao" type="java.lang.String" />
+        </form-bean>
+
+        <form-bean name="orgaoResponsavelForm" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="id" type="java.lang.String" />
+            <form-property name="descricao" type="java.lang.String" />
+        </form-bean>
+
+        <form-bean name="entidadeExecutoraForm" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="id" type="java.lang.String" />
+            <form-property name="descricao" type="java.lang.String" />
+        </form-bean>
+
+        <form-bean name="periodoForm" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="id" type="java.lang.String" />
+            <form-property name="dataInicial" type="java.lang.String" />
+            <form-property name="dataFinal" type="java.lang.String" />
+            <form-property name="descricao" type="java.lang.String" />
+        </form-bean>
+
+        <form-bean name="tipoFonteForm" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="id" type="java.lang.String" />
+            <form-property name="descricao" type="java.lang.String" />
+            <form-property name="origemId" type="java.lang.String" />
+            <form-property name="grupoTipoFonteId" type="java.lang.String" />
+            <form-property name="grupoTipoFonteIdFiltro" type="java.lang.String" />
+        </form-bean>
+
+        <form-bean name="fonteForm" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="id" type="java.lang.String" />
+            <form-property name="descricao" type="java.lang.String" />
+            <form-property name="grupoTipoFonteId" type="java.lang.String" />
+            <form-property name="grupoTipoFonteIdFiltro" type="java.lang.String" />
+            <form-property name="tipoFonteId" type="java.lang.String" />
+            <form-property name="tipoFonteIdFiltro" type="java.lang.String" />
+            <form-property name="planejamentoId" type="java.lang.String" />
+            <form-property name="valor" type="java.lang.String" />
+            <form-property name="arquivo" type="org.apache.struts.upload.FormFile" />
+            <form-property name="origemId" type="java.lang.String" />
+            <form-property name="origemIdFiltro" type="java.lang.String" />
+        </form-bean>
+
+        <form-bean name="relFonteCategoriaForm" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="planejamentoId" type="java.lang.String" />
+            <form-property name="dataInicial" type="java.lang.String"/>
+            <form-property name="dataFinal" type="java.lang.String"/>
+        </form-bean>
+
+        <form-bean name="folhaResumoForm" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="identificacao" type="java.lang.String" />
+        </form-bean>
+
+        <form-bean name="receitaForm" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="id" type="java.lang.String" />
+        </form-bean>
+
+        <form-bean name="custoForm" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="id" type="java.lang.String" />
+            <form-property name="data" type="java.lang.String" />
+            <form-property name="valor" type="java.lang.String" />
+            <form-property name="periodoId" type="java.lang.String" />
+            <form-property name="categoriaId" type="java.lang.String" />
+            <form-property name="origemId" type="java.lang.String" />
+        </form-bean>
+        
+        <form-bean name="internalizacaoForm" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="id" type="java.lang.String" />
+            <form-property name="parcela" type="java.lang.String" />
+            <form-property name="valor" type="java.lang.String" />
+            <form-property name="descricao" type="java.lang.String" />
+            <form-property name="entrada" type="java.lang.String" />
+        </form-bean>
+
+        <form-bean name="internalizacaoDevolucaoForm" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="id" type="java.lang.String" />
+            <form-property name="tipo" type="java.lang.String" />
+            <form-property name="seqLinha" type="java.lang.String" />
+            <form-property name="nomeFornecedor" type="java.lang.String" />
+            <form-property name="classificacao" type="java.lang.String" />
+            <!--Campos para o filtro de compromisso -->
+            <form-property name="descricao" type="java.lang.String" />
+            <form-property name="dataInicial" type="java.lang.String" />
+            <form-property name="dataFinal" type="java.lang.String" />
+            <form-property name="valor" type="java.lang.String" />
+            <form-property name="centroCusto" type="java.lang.String" />
+        </form-bean>
+
+        <form-bean name="internalizacaoLoteBancarioForm" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="id" type="java.lang.String" />
+            <form-property name="tipo" type="java.lang.String" />
+            <form-property name="seqLinha" type="java.lang.String" />
+            <form-property name="nomeFornecedor" type="java.lang.String" />
+            <form-property name="classificacao" type="java.lang.String" />
+            <!--Campos para o filtro de compromisso -->
+            <form-property name="descricao" type="java.lang.String" />
+            <form-property name="dataInicial" type="java.lang.String" />
+            <form-property name="dataFinal" type="java.lang.String" />
+            <form-property name="valor" type="java.lang.String" />
+            <form-property name="centroCusto" type="java.lang.String" />
+        </form-bean>
+
+        <form-bean name="internalizacaoAplicacaoFinanceiraForm" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="id" type="java.lang.String" />
+            <form-property name="valor" type="java.lang.String" />
+            <form-property name="descricao" type="java.lang.String" />
+            <form-property name="entrada" type="java.lang.String" />
+            <form-property name="tipoFonteId" type="java.lang.String" />
+        </form-bean>
+
+        <form-bean name="despesaForm" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="apdId" type="java.lang.String" />
+            <form-property name="apdTp" type="java.lang.String" />
+            <form-property name="seqLinha" type="java.lang.String" />
+            <form-property name="motivo" type="java.lang.String" />
+             <!--Campos para o filtro de despesaInelegíveis -->
+             <form-property name="data" type="java.lang.String" />
+             <form-property name="descricao" type="java.lang.String" />
+             <form-property name="valor" type="java.lang.String" />
+        </form-bean>
+
+        <form-bean name="contratoForm" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="id" type="java.lang.String" />
+            <form-property name="idFornecedor" type="java.lang.String" />
+            <form-property name="dataInicioVigencia" type="java.lang.String" />
+            <form-property name="dataFimVigencia" type="java.lang.String" />
+            <form-property name="numero" type="java.lang.String" />
+            <form-property name="valor" type="java.lang.String" />
+            <form-property name="objeto" type="java.lang.String" />
+            <form-property name="moeda" type="java.lang.String" />
+            <form-property name="tipo" type="java.lang.String" />
+            <form-property name="valorUSD" type="java.lang.String" />
+            <form-property name="clientConnection" type="java.lang.String"/>
+            <form-property name="observacao" type="java.lang.String"/>
+            <form-property name="contrato" type="java.lang.String"/>
+            <form-property name="fornecedor" type="java.lang.String"/>
+        </form-bean>
+        
+        <form-bean name="parcelaForm" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="id" type="java.lang.String" />
+            <form-property name="idContrato" type="java.lang.String" />
+            <form-property name="valor" type="java.lang.String" />
+        </form-bean>
+        
+        <form-bean name="aditivoForm" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="id" type="java.lang.String" />
+            <form-property name="idContrato" type="java.lang.String" />
+            <form-property name="novaData" type="java.lang.String" />
+        </form-bean>
+        
+        <form-bean name="pedidoForm" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="id" type="java.lang.String" />
+            <form-property name="dataInicio" type="java.lang.String" />
+            <form-property name="dataFim" type="java.lang.String" />
+            <form-property name="numero" type="java.lang.String" />
+        </form-bean>
+
+        <form-bean name="compartilhamentoCCForm" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="centroCusto" type="java.lang.String" />
+            <form-property name="composites" type="java.lang.String[]" />
+        </form-bean>
+
+        <form-bean name="simuladorForm" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="dataInicio" type="java.lang.String" />
+            <form-property name="dataFim" type="java.lang.String" />
+        </form-bean>
+
+        <form-bean name="POAForm" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="id" type="java.lang.String" />
+            <form-property name="descricao" type="java.lang.String" />
+            <form-property name="moeda" type="java.lang.String" />
+        </form-bean>
+
+        <form-bean name="despesaOrdenadaForm" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="data" type="java.lang.String" />
+            <form-property name="ordem" type="java.lang.String[]" />
+            <form-property name="apdId" type="java.lang.String[]" />
+            <form-property name="apdTp" type="java.lang.String[]" />
+            <form-property name="seqLinha" type="java.lang.String[]" />
+        </form-bean>
+        
+         <form-bean name="despesaViagemForm" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="data" type="java.lang.String" />
+            <form-property name="recibo" type="java.lang.String" />
+            <form-property name="descricao" type="java.lang.String" />
+            <form-property name="nomeFornecedor" type="java.lang.String" />
+            <form-property name="valor" type="java.lang.String" />
+        </form-bean>
+
+        <form-bean name="despesaDataExibicaoForm" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="lancamento" type="br.org.flem.fw.persistencia.dto.LancamentoInterface" />
+            <form-property name="dataLancamento" type="java.lang.String" />
+            <!--Campos para o filtro de despesaDataExibicao -->
+             <form-property name="data" type="java.lang.String" />
+             <form-property name="descricao" type="java.lang.String" />
+             <form-property name="valor" type="java.lang.String" />
+        </form-bean>
+
+        <form-bean name="correcaoValorForm" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="lancamento" type="br.org.flem.fw.persistencia.dto.LancamentoInterface" />
+            <form-property name="valorLancamento" type="java.lang.String" />
+            <!--Campos para o filtro de correcaoValor -->
+             <form-property name="data" type="java.lang.String" />
+             <form-property name="descricao" type="java.lang.String" />
+             <form-property name="valor" type="java.lang.String" />
+        </form-bean>
+
+        <form-bean name="lancamentoAvulsoForm" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="lancamentoAvulso" type="br.org.flem.baprodutiva.negocio.LancamentoAvulso" />
+            <form-property name="dataPagamento" type="java.lang.String" />
+        </form-bean>
+
+        <form-bean name="loteForm" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="lote" type="br.org.flem.baprodutiva.negocio.LoteDespesaAplicacao" />
+        </form-bean>
+        
+        <form-bean name="correcaoCCForm" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="lancamento" type="br.org.flem.fw.persistencia.dto.LancamentoInterface" />
+            <form-property name="ccLancamento" type="java.lang.String" />
+            <!--Campos para o filtro de correcaoCC -->
+             <form-property name="data" type="java.lang.String" />
+             <form-property name="descricao" type="java.lang.String" />
+             <form-property name="valor" type="java.lang.String" />
+             <form-property name="centroCusto" type="java.lang.String" />
+        </form-bean>
+        
+        <form-bean name="correcaoNomeForm" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="lancamento" type="br.org.flem.fw.persistencia.dto.LancamentoInterface" />
+            <form-property name="descricaoLancamento" type="java.lang.String" />
+            <!--Campos para o filtro de correcaoNome -->
+             <form-property name="data" type="java.lang.String" />
+             <form-property name="descricao" type="java.lang.String" /> 
+             <form-property name="valor" type="java.lang.String" />               
+        </form-bean>
+        
+        <form-bean name="atividadeNovaDescricaoForm" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="novaDescricao" type="br.org.flem.baprodutiva.negocio.AtividadeNovaDescricao"/>
+        </form-bean>
+        
+        <form-bean name="rateioCentroCustoForm" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="rateioCentroCusto" type="br.org.flem.baprodutiva.negocio.RateioCentroCusto"/>
+            <!--form-property name="apdTp" type="java.lang.String" />
+            <form-property name="apdId" type="java.lang.String" /-->
+        </form-bean>
+        
+        <form-bean name="migrarForm" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="id" type="java.lang.String" />
+            <form-property name="descricao" type="java.lang.String" />
+            <form-property name="planejamentoId1" type="java.lang.String" />
+            <form-property name="planejamentoId2" type="java.lang.String" />
+            <form-property name="planejamentos" type="java.lang.String" />
+        </form-bean>
+        
+        <form-bean name="transferenciaForm" type="org.apache.struts.action.DynaActionForm">
+            <form-property name="transferencia" type="br.org.flem.baprodutiva.negocio.TransferenciaBancaria" />
+            <form-property name="id" type="java.lang.String" />
+            <form-property name="descricao" type="java.lang.String" />
+            <form-property name="apdId" type="java.lang.String" />
+            <form-property name="apdTp" type="java.lang.String" />
+            <form-property name="valor" type="java.lang.String" />
+            <form-property name="seqLinha" type="java.lang.String" />
+            <form-property name="data" type="java.lang.String" />
+            <form-property name="nomeFornecedor" type="java.lang.String" />
+            <form-property name="codigoFornecedor" type="java.lang.String" />
+            <form-property name="centroCusto" type="java.lang.String" />
+            <form-property name="nome" type="java.lang.String" />
+        </form-bean>
+    </form-beans>
+
+    <global-exceptions></global-exceptions>
+
+    <global-forwards>
+        <forward name="home"  path="/Home.do"/>
+    </global-forwards>
+
+    <action-mappings>
+        <action path="/Home" forward="/index.jsp"/>
+        
+        
+        <action path="/Planejamento" name="planejamenstoForm" type="br.org.flem.baprodutiva.web.struts.action.PlanejamentoAction" parameter="metodo" scope="request" validate="true">
+            <forward name="lista" path="/pages/planejamento/lista.jsp" />
+            <forward name="novo" path="/pages/planejamento/novo.jsp" />
+            <forward name="alterar" path="/pages/planejamento/alterar.jsp" />
+            <forward name="redirect" path="Planejamento.do" redirect="true"/>
+        </action>
+
+        <action path="/Relatorio" name="relFonteCategoriaForm" type="br.org.flem.baprodutiva.web.struts.action.RelatorioAction" parameter="metodo" scope="request" validate="true">
+            <forward name="filtroRelatorioPlanejamento" path="/relatorio/filtroRelatorioPlanejamento.jsp" />
+            <forward name="filtroRelatorioSOE" path="/relatorio/filtroRelatorioSOE.jsp" />
+            <forward name="filtroRelatorioGerencialFinanceiro" path="/relatorio/filtroRelatorioGerencialFinanceiro.jsp"/>
+        </action>
+
+        <action path="/FolhaResumo" name="folhaResumoForm" type="br.org.flem.baprodutiva.web.struts.action.FolhaResumoAction" parameter="metodo" scope="request" validate="true">
+            <forward name="relatorio" path="/relatorio/folhaResumo.jsp" />
+        </action>
+
+        <action path="/Categoria" name="categoriaForm" type="br.org.flem.baprodutiva.web.struts.action.CategoriaAction" parameter="metodo" scope="request" validate="true">
+            <forward name="lista" path="/pages/categoria/lista.jsp" />
+            <forward name="novo" path="/pages/categoria/novo.jsp" />
+            <forward name="alterar" path="/pages/categoria/alterar.jsp" />
+            <forward name="redirect" path="Categoria.do" redirect="true"/>
+        </action>
+        
+       <action path="/SubCategoria" name="subcategoriaForm" type="br.org.flem.baprodutiva.web.struts.action.SubCategoriaAction" parameter="metodo" scope="request" validate="true">
+            <forward name="lista" path="/pages/subCategoria/lista.jsp" />
+            <forward name="novo" path="/pages/subCategoria/novo.jsp" />
+            <forward name="alterar" path="/pages/subCategoria/alterar.jsp" />
+            <forward name="redirect" path="SubCategoria.do" redirect="true"/>
+        </action>
+
+        <action path="/Componente" name="componenteForm" type="br.org.flem.baprodutiva.web.struts.action.ComponenteAction" parameter="metodo" scope="request" validate="true">
+            <forward name="lista" path="/pages/componente/lista.jsp" />
+            <forward name="novo" path="/pages/componente/novo.jsp" />
+            <forward name="alterar" path="/pages/componente/alterar.jsp" />
+            <forward name="redirect" path="Componente.do" redirect="true"/>
+        </action>
+
+        <action path="/SubComponente" name="subComponenteForm" type="br.org.flem.baprodutiva.web.struts.action.SubComponenteAction" parameter="metodo" scope="request" validate="true">
+            <forward name="lista" path="/pages/subComponente/lista.jsp" />
+            <forward name="novo" path="/pages/subComponente/novo.jsp" />
+            <forward name="alterar" path="/pages/subComponente/alterar.jsp" />
+            <forward name="redirect" path="SubComponente.do" redirect="true"/>
+        </action>
+
+        <action path="/SubComponenteCusto" name="custoForm" type="br.org.flem.baprodutiva.web.struts.action.SubComponenteCustoAction" parameter="metodo" scope="request" validate="true">
+            <forward name="lista" path="/pages/subComponenteCusto/lista.jsp" />
+            <forward name="novo" path="/pages/subComponenteCusto/novo.jsp" />
+            <forward name="alterar" path="/pages/subComponenteCusto/alterar.jsp" />
+            <forward name="redirect" path="SubComponenteCusto.do" redirect="true"/>
+        </action>
+
+        <action path="/SubProjeto" name="subProjetoForm" type="br.org.flem.baprodutiva.web.struts.action.SubProjetoAction" parameter="metodo" scope="request" validate="true">
+            <forward name="lista" path="/pages/subProjeto/lista.jsp" />
+            <forward name="novo" path="/pages/subProjeto/novo.jsp" />
+            <forward name="alterar" path="/pages/subProjeto/alterar.jsp" />
+            <forward name="redirect" path="SubProjeto.do" redirect="true"/>
+        </action>
+
+        <action path="/SubAtividade" name="subAtividadeForm" type="br.org.flem.baprodutiva.web.struts.action.SubAtividadeAction" parameter="metodo" scope="request" validate="true">
+            <forward name="lista" path="/pages/subAtividade/lista.jsp" />
+            <forward name="novo" path="/pages/subAtividade/novo.jsp" />
+            <forward name="alterar" path="/pages/subAtividade/alterar.jsp" />
+            <forward name="migrar" path="/pages/subAtividade/migrar.jsp" />
+            <forward name="redirect" path="SubAtividade.do" redirect="true"/>
+        </action>
+
+        <action path="/SubAtividadeFinanceiroPrevisto" name="planejamentoFinanceiroForm" type="br.org.flem.baprodutiva.web.struts.action.SubAtividadeFinanceiroPrevistoAction" parameter="metodo" scope="request" validate="true">
+            <forward name="lista" path="/pages/subAtividadeFinanceiro/lista.jsp" />
+            <forward name="novo" path="/pages/subAtividadeFinanceiro/novo.jsp" />
+            <forward name="alterar" path="/pages/subAtividadeFinanceiro/alterar.jsp" />
+            <forward name="redirect" path="SubAtividadeFinanceiroPrevisto.do" redirect="true"/>
+        </action>
+
+        <action path="/ProdutoFisicoPrevisto" name="planejamentoFisicoForm" type="br.org.flem.baprodutiva.web.struts.action.PlanejamentoFisicoPrevistoAction" parameter="metodo" scope="request" validate="true">
+            <forward name="lista" path="/pages/planejamentoFisico/previsto/lista.jsp" />
+            <forward name="novo" path="/pages/planejamentoFisico/previsto/novo.jsp" />
+            <forward name="alterar" path="/pages/planejamentoFisico/previsto/alterar.jsp" />
+            <forward name="redirect" path="ProdutoFisicoPrevisto.do" redirect="true"/>
+            <forward name="redirectProduto" path="Produto.do" redirect="true"/>
+        </action>
+
+        <action path="/ProdutoFisicoExecutado" name="planejamentoFisicoForm" type="br.org.flem.baprodutiva.web.struts.action.PlanejamentoFisicoExecutadoAction" parameter="metodo" scope="request" validate="true">
+            <forward name="lista" path="/pages/planejamentoFisico/executado/lista.jsp" />
+            <forward name="novo" path="/pages/planejamentoFisico/executado/novo.jsp" />
+            <forward name="alterar" path="/pages/planejamentoFisico/executado/alterar.jsp" />
+            <forward name="redirect" path="ProdutoFisicoExecutado.do" redirect="true"/>
+            <forward name="redirectProduto" path="Produto.do" redirect="true"/>
+        </action>
+
+        <action path="/AtividadeCusto" name="custoForm" type="br.org.flem.baprodutiva.web.struts.action.AtividadeCustoAction" parameter="metodo" scope="request" validate="true">
+            <forward name="lista" path="/pages/atividadeCusto/lista.jsp" />
+            <forward name="novo" path="/pages/atividadeCusto/novo.jsp" />
+            <forward name="alterar" path="/pages/atividadeCusto/alterar.jsp" />
+            <forward name="redirect" path="AtividadeCusto.do" redirect="true"/>
+        </action>
+
+        <action path="/SubAtividadeCusto" name="custoForm" type="br.org.flem.baprodutiva.web.struts.action.SubAtividadeCustoAction" parameter="metodo" scope="request" validate="true">
+            <forward name="lista" path="/pages/subAtividadeCusto/lista.jsp" />
+            <forward name="novo" path="/pages/subAtividadeCusto/novo.jsp" />
+            <forward name="alterar" path="/pages/subAtividadeCusto/alterar.jsp" />
+            <forward name="redirect" path="SubAtividadeCusto.do" redirect="true"/>
+        </action>
+
+        <action path="/GrupoTipoFonte" name="grupoTipoFonteForm" type="br.org.flem.baprodutiva.web.struts.action.GrupoTipoFonteAction" parameter="metodo" scope="request" validate="true">
+            <forward name="lista" path="/pages/grupoTipoFonte/lista.jsp" />
+            <forward name="novo" path="/pages/grupoTipoFonte/novo.jsp" />
+            <forward name="alterar" path="/pages/grupoTipoFonte/alterar.jsp" />
+            <forward name="redirect" path="GrupoTipoFonte.do" redirect="true"/>
+        </action>
+
+        <action path="/TipoFonte" name="tipoFonteForm" type="br.org.flem.baprodutiva.web.struts.action.TipoFonteAction" parameter="metodo" scope="request" validate="true">
+            <forward name="lista" path="/pages/tipoFonte/lista.jsp" />
+            <forward name="novo" path="/pages/tipoFonte/novo.jsp" />
+            <forward name="alterar" path="/pages/tipoFonte/alterar.jsp" />
+            <forward name="redirect" path="TipoFonte.do" redirect="true"/>
+        </action>
+
+        <action path="/Fonte" name="fonteForm" type="br.org.flem.baprodutiva.web.struts.action.FonteAction" parameter="metodo" scope="request" validate="true">
+            <forward name="lista" path="/pages/fonte/lista.jsp" />
+            <forward name="novo" path="/pages/fonte/novo.jsp" />
+            <forward name="alterar" path="/pages/fonte/alterar.jsp" />
+            <forward name="listaArquivos" path="/pages/fonte/listaArquivos.jsp" />
+            <forward name="novoArquivo" path="/pages/fonte/novoArquivo.jsp" />
+            <forward name="redirect" path="Fonte.do" redirect="true"/>
+        </action>
+
+        <action path="/Receita" name="receitaForm" type="br.org.flem.baprodutiva.web.struts.action.ReceitaAction" parameter="metodo" scope="request" validate="true">
+            <forward name="lista" path="/pages/receita/lista.jsp" />
+            <forward name="novo" path="/pages/receita/novo.jsp" />
+            <forward name="alterar" path="/pages/receita/alterar.jsp" />
+            <forward name="listaGEM" path="/pages/receita/listaGEM.jsp" />
+            <forward name="redirect" path="Receita.do" redirect="true"/>
+        </action>
+
+        <action path="/UnidadeMedida" name="unidadeMedidaForm" type="br.org.flem.baprodutiva.web.struts.action.UnidadeMedidaAction" parameter="metodo" scope="request" validate="true">
+            <forward name="lista" path="/pages/unidadeMedida/lista.jsp" />
+            <forward name="novo" path="/pages/unidadeMedida/novo.jsp" />
+            <forward name="alterar" path="/pages/unidadeMedida/alterar.jsp" />
+            <forward name="excluir" path="/pages/unidadeMedida/excluir.jsp" />
+            <forward name="redirect" path="UnidadeMedida.do" redirect="true"/>
+        </action>
+
+        <action path="/OrgaoResponsavel" name="orgaoResponsavelForm" type="br.org.flem.baprodutiva.web.struts.action.OrgaoResponsavelAction" parameter="metodo" scope="request" validate="true">
+            <forward name="lista" path="/pages/orgaoResponsavel/lista.jsp" />
+            <forward name="novo" path="/pages/orgaoResponsavel/novo.jsp" />
+            <forward name="alterar" path="/pages/orgaoResponsavel/alterar.jsp" />
+            <forward name="excluir" path="/pages/orgaoResponsavel/excluir.jsp" />
+            <forward name="redirect" path="OrgaoResponsavel.do" redirect="true"/>
+        </action>
+
+        <action path="/EntidadeExecutora" name="entidadeExecutoraForm" type="br.org.flem.baprodutiva.web.struts.action.EntidadeExecutoraAction" parameter="metodo" scope="request" validate="true">
+            <forward name="lista" path="/pages/entidadeExecutora/lista.jsp" />
+            <forward name="novo" path="/pages/entidadeExecutora/novo.jsp" />
+            <forward name="alterar" path="/pages/entidadeExecutora/alterar.jsp" />
+            <forward name="excluir" path="/pages/entidadeExecutora/excluir.jsp" />
+            <forward name="redirect" path="EntidadeExecutora.do" redirect="true"/>
+        </action>
+
+        <action path="/Periodo" name="periodoForm" type="br.org.flem.baprodutiva.web.struts.action.PeriodoAction" parameter="metodo" scope="request" validate="true">
+            <forward name="lista" path="/pages/periodo/lista.jsp" />
+            <forward name="novo" path="/pages/periodo/novo.jsp" />
+            <forward name="alterar" path="/pages/periodo/alterar.jsp" />
+            <forward name="excluir" path="/pages/periodo/excluir.jsp" />
+            <forward name="redirect" path="Periodo.do" redirect="true"/>
+        </action>
+
+        <action path="/Internalizacao" name="internalizacaoForm" type="br.org.flem.baprodutiva.web.struts.action.InternalizacaoAction" parameter="metodo" scope="request" validate="true">
+            <forward name="lista" path="/pages/internalizacao/lista.jsp" />
+            <forward name="novo" path="/pages/internalizacao/novo.jsp" />
+            <forward name="alterar" path="/pages/internalizacao/alterar.jsp" />
+            <!--forward name="listaReceitasGEM" path="/pages/internalizacao/listaReceitasGEM.jsp" />
+            <forward name="lista" path="/pages/internalizacao/lista.jsp" />
+            <forward name="reconhecimento" path="/pages/internalizacao/reconhecimento.jsp" /-->
+            <forward name="redirect" path="Internalizacao.do" redirect="true"/>
+        </action>
+
+        <action path="/Contrato" name="contratoForm" type="br.org.flem.baprodutiva.web.struts.action.ContratoAction" parameter="metodo" scope="request" validate="true">
+            <forward name="lista" path="/pages/contrato/lista.jsp" />
+            <forward name="novo" path="/pages/contrato/novo.jsp" />
+            <forward name="alterar" path="/pages/contrato/alterar.jsp" />
+            <forward name="redirect" path="Contrato.do" redirect="true"/>
+        </action>
+        
+        <action path="/Parcela" name="parcelaForm" type="br.org.flem.baprodutiva.web.struts.action.ParcelaAction" parameter="metodo" scope="request" validate="true">
+            <forward name="lista" path="/pages/contrato/parcela/lista.jsp" />
+            <forward name="novo" path="/pages/contrato/parcela/novo.jsp" />
+            <forward name="alterar" path="/pages/contrato/parcela/alterar.jsp" />
+            <forward name="redirect" path="Parcela.do" redirect="true"/>
+        </action>
+        
+        <action path="/Aditivo" name="aditivoForm" type="br.org.flem.baprodutiva.web.struts.action.AditivoAction" parameter="metodo" scope="request" validate="true">
+            <forward name="lista" path="/pages/contrato/aditivo/lista.jsp" />
+            <forward name="novo" path="/pages/contrato/aditivo/novo.jsp" />
+            <forward name="alterar" path="/pages/contrato/aditivo/alterar.jsp" />
+            <forward name="redirect" path="Aditivo.do" redirect="true"/>
+        </action>
+
+        <action path="/Pedido" name="pedidoForm" type="br.org.flem.baprodutiva.web.struts.action.PedidoAction" parameter="metodo" scope="request" validate="true">
+            <forward name="lista" path="/pages/pedido/lista.jsp" />
+            <forward name="novo" path="/pages/pedido/novo.jsp" />
+            <forward name="alterar" path="/pages/pedido/alterar.jsp" />
+            <forward name="redirect" path="Pedido.do" redirect="true"/>
+        </action>
+
+        <action path="/Produto" name="produtoForm" type="br.org.flem.baprodutiva.web.struts.action.ProdutoAction" parameter="metodo" scope="request" validate="true">
+            <forward name="lista" path="/pages/produto/lista.jsp" />
+            <forward name="novo" path="/pages/produto/novo.jsp" />
+            <forward name="alterar" path="/pages/produto/alterar.jsp" />
+            <forward name="alterarPlanejamentoFisico" path="/pages/planejamentoFisico/alterar.jsp" />
+            <forward name="redirect" path="Produto.do" redirect="true"/>
+            <forward name="redirectPlan" path="Planejamento.do" redirect="true"/>
+        </action>
+
+        <action path="/DespesaInelegivel" name="despesaForm" type="br.org.flem.baprodutiva.web.struts.action.DespesaInelegivelAction" parameter="metodo" scope="request" validate="true">
+            <forward name="listaDespesasGEM" path="/pages/despesaInelegivel/listaDespesasGEM.jsp" />
+            <forward name="lista" path="/pages/despesaInelegivel/lista.jsp" />
+            <forward name="ineleicao" path="/pages/despesaInelegivel/ineleicao.jsp" />
+            <forward name="redirect" path="DespesaInelegivel.do" redirect="true"/>
+        </action>
+
+        <action path="/DespesaOrdenada" name="despesaOrdenadaForm" type="br.org.flem.baprodutiva.web.struts.action.DespesaOrdenadaAction" parameter="metodo" scope="request" validate="true">
+            <forward name="lista" path="/pages/despesaordenada/lista.jsp" />
+            <forward name="redirect" path="DespesaOrdenada.do" redirect="true"/>
+        </action>
+
+        <action path="/InternalizacaoDevolucao" name="internalizacaoDevolucaoForm" type="br.org.flem.baprodutiva.web.struts.action.InternalizacaoDevolucaoAction" parameter="metodo" scope="request" validate="true">
+            <forward name="listaDevolucoesGEM" path="/pages/internalizacaoDevolucao/listaDevolucoesGEM.jsp" />
+            <forward name="lista" path="/pages/internalizacaoDevolucao/lista.jsp" />
+            <forward name="associarCompromisso" path="/pages/internalizacaoDevolucao/associarCompromisso.jsp" />
+            <forward name="reconhecimento" path="/pages/internalizacaoDevolucao/reconhecimento.jsp" />
+            <forward name="redirect" path="InternalizacaoDevolucao.do" redirect="true"/>
+        </action>
+
+        <action path="/InternalizacaoLoteBancario" name="internalizacaoLoteBancarioForm" type="br.org.flem.baprodutiva.web.struts.action.InternalizacaoLoteBancarioAction" parameter="metodo" scope="request" validate="true">
+            <forward name="listaLotesGEM" path="/pages/internalizacaoLoteBancario/listaLotesGEM.jsp" />
+            <forward name="lista" path="/pages/internalizacaoLoteBancario/lista.jsp" />
+            <forward name="associarCompromisso" path="/pages/internalizacaoLoteBancario/associarCompromisso.jsp" />
+            <forward name="reconhecimento" path="/pages/internalizacaoLoteBancario/reconhecimento.jsp" />
+            <forward name="redirect" path="InternalizacaoLoteBancario.do" redirect="true"/>
+        </action>
+
+        <action path="/CompartilhamentoCC" name="compartilhamentoCCForm" type="br.org.flem.baprodutiva.web.struts.action.CompartilhamentoCCAction" parameter="metodo" scope="request" validate="true">
+            <forward name="lista" path="/pages/compartilhamentoCC/lista.jsp" />
+            <forward name="novo" path="/pages/compartilhamentoCC/novo.jsp" />
+            <forward name="redirect" path="CompartilhamentoCC.do" redirect="true"/>
+        </action>
+
+        <action path="/InternalizacaoAplicacaoFinanceira" name="internalizacaoAplicacaoFinanceiraForm" type="br.org.flem.baprodutiva.web.struts.action.InternalizacaoAplicacaoFinanceiraAction" parameter="metodo" scope="request" validate="true">
+            <forward name="lista" path="/pages/internalizacaoAplicacaoFinanceira/lista.jsp" />
+            <forward name="novo" path="/pages/internalizacaoAplicacaoFinanceira/novo.jsp" />
+            <forward name="alterar" path="/pages/internalizacaoAplicacaoFinanceira/alterar.jsp" />
+            <forward name="redirect" path="InternalizacaoAplicacaoFinanceira.do" redirect="true"/>
+        </action>
+
+        <action path="/DespesaAplicacaoFinanceira" name="despesaForm" type="br.org.flem.baprodutiva.web.struts.action.DespesaAplicacaoFinanceiraAction" parameter="metodo" scope="request" validate="true">
+            <forward name="listaDespesasGEM" path="/pages/despesaAplicacaoFinanceira/listaDespesasGEM.jsp" />
+            <forward name="lista" path="/pages/despesaAplicacaoFinanceira/lista.jsp" />
+            <forward name="pagamento" path="/pages/despesaAplicacaoFinanceira/pagamento.jsp" />
+            <forward name="redirect" path="DespesaAplicacaoFinanceira.do" redirect="true"/>
+        </action>
+
+        <action path="/Simulador" name="simuladorForm" type="br.org.flem.baprodutiva.web.struts.action.SimuladorAction" parameter="metodo" scope="request" validate="true">
+            <forward name="filtro" path="/pages/simulador/filtro.jsp" />
+        </action>
+
+        <action path="/ValidacoesFinanceira" name="compromissoForm" type="br.org.flem.baprodutiva.web.struts.action.ValidacoesFinanceiraAction" parameter="metodo" scope="request">
+            <forward name="lista" path="/pages/validacoesFinanceira/lista.jsp" />
+            <forward name="alterar" path="/pages/validacoesFinanceira/alterar.jsp" />
+            <forward name="devolucao" path="/pages/internalizacaoDevolucao/listaDevolucoesGEM.jsp" />
+            <forward name="redirect" path="ValidacoesFinanceira.do" redirect="true"/>
+        </action>
+
+        <action path="/POA" name="POAForm" scope="request" type="br.org.flem.baprodutiva.web.struts.action.POAAction" parameter="metodo" validate="true" >
+            <forward name="lista" path="/pages/POA/lista.jsp" />
+            <forward name="novo" path="/pages/POA/novo.jsp" />
+            <forward name="alterar" path="/pages/POA/alterar.jsp" />
+            <forward name="redirect" path="POA.do" redirect="true"/>
+        </action>
+
+
+        <action path="/DespesaDataExibicao" name="despesaDataExibicaoForm" type="br.org.flem.baprodutiva.web.struts.action.DespesaDataExibicaoAction" parameter="metodo">
+            <forward name="lista" path="/pages/despesaDataExibicao/listaDespesas.jsp"/>
+            <forward name="novo" path="/pages/despesaDataExibicao/novo.jsp"/>
+            <forward name="alterar" path="/pages/despesaDataExibicao/alterar.jsp"/>
+            <forward name="redirect" path="/DespesaDataExibicao.do" redirect="true"/>
+        </action>
+
+        <action path="/CorrecaoValor" name="correcaoValorForm" type="br.org.flem.baprodutiva.web.struts.action.CorrecaoValorAction" parameter="metodo">
+            <forward name="lista" path="/pages/correcaoValor/listaDespesas.jsp"/>
+            <forward name="novo" path="/pages/correcaoValor/novo.jsp"/>
+            <forward name="alterar" path="/pages/correcaoValor/alterar.jsp"/>
+            <forward name="redirect" path="/CorrecaoValor.do" redirect="true"/>
+        </action>
+        
+        <action path="/CorrecaoNome" name="correcaoNomeForm" type="br.org.flem.baprodutiva.web.struts.action.CorrecaoNomeAction" parameter="metodo">
+            <forward name="lista" path="/pages/correcaoNome/listaDespesas.jsp"/>
+            <forward name="novo" path="/pages/correcaoNome/novo.jsp"/>
+            <forward name="alterar" path="/pages/correcaoNome/alterar.jsp"/>
+            <forward name="redirect" path="/CorrecaoNome.do" redirect="true"/>
+        </action>
+
+        <action path="/LancamentoAvulso" name="lancamentoAvulsoForm" type="br.org.flem.baprodutiva.web.struts.action.LancamentoAvulsoAction" parameter="metodo">
+            <forward name="lista" path="/pages/lancamentoAvulso/listaLancamentos.jsp"/>
+            <forward name="novo" path="/pages/lancamentoAvulso/novo.jsp"/>
+            <forward name="alterar" path="/pages/lancamentoAvulso/alterar.jsp"/>
+            <forward name="redirect" path="/LancamentoAvulso.do" redirect="true"/>
+        </action>
+
+        <action path="/ValidacaoProjeto" name="validacaoForm" type="br.org.flem.baprodutiva.web.struts.action.ValidacaoProjetoAction" parameter="metodo" validate="true" >
+            <forward name="revisar" path="/pages/validacaoProjeto/revisarContrapartida.jsp"/>
+            <forward name="lista" path="/pages/validacaoProjeto/lista.jsp" />
+        </action>
+
+        <action parameter="metodo" name="compromissoForm" path="/InternalizacaoSaldo" type="br.org.flem.baprodutiva.web.struts.action.InternalizacaoSaldoAction">
+            <forward name="listaReal" path="/pages/internalizacaoSaldo/listaReal.jsp"/>
+            <forward name="listaDolar" path="/pages/internalizacaoSaldo/listaDolar.jsp"/>
+        </action>
+
+        <action path="/Planejamento" name="planejamentoForm" scope="request" type="br.org.flem.baprodutiva.web.struts.action.PlanejamentoAction" parameter="metodo" validate="true" >
+            <forward name="lista" path="/pages/planejamento/lista.jsp" />
+            <forward name="novo" path="/pages/planejamento/novo.jsp" />
+            <forward name="alterar" path="/pages/planejamento/alterar.jsp" />
+            <forward name="redirect" path="Planejamento.do" redirect="true"/>
+            <forward name="redirectSubAtividade" path="SubAtividade.do" redirect="true"/>
+        </action>
+
+        <action path="/LoteDespesaAplicacao" name="loteForm" scope="request" type="br.org.flem.baprodutiva.web.struts.action.LoteDespesaAplicacaoAction" parameter="metodo" validate="true" >
+            <forward name="lista" path="/pages/loteDespesaAplicacao/lista.jsp" />
+            <forward name="listaLotes" path="/pages/loteDespesaAplicacao/listaLotesGEM.jsp" />
+            <forward name="alterar" path="/pages/loteDespesaAplicacao/alterar.jsp"/>
+            <forward name="reconhecer" path="/pages/loteDespesaAplicacao/reconhecimento.jsp" />
+            <forward name="redirect" path="LoteDespesaAplicacao.do" redirect="true"/>
+        </action>
+        
+        <action path="/CorrecaoCC" name="correcaoCCForm" type="br.org.flem.baprodutiva.web.struts.action.CorrecaoCCAction" parameter="metodo">
+            <forward name="lista" path="/pages/correcaoCC/listaDespesas.jsp"/>
+            <forward name="novo" path="/pages/correcaoCC/novo.jsp"/>
+            <forward name="alterar" path="/pages/correcaoCC/alterar.jsp"/>
+            <forward name="redirect" path="/CorrecaoCC.do" redirect="true"/>
+        </action>
+        
+        <action path="/AtividadeNovaDescricao" name="atividadeNovaDescricaoForm" type="br.org.flem.baprodutiva.web.struts.action.AtividadeNovaDescricaoAction" parameter="metodo">
+            <forward name="lista" path="/pages/atividadenovadescricao/lista.jsp"/>
+            <forward name="novo" path="/pages/atividadenovadescricao/novo.jsp"/>
+            <forward name="alterar" path="/pages/atividadenovadescricao/alterar.jsp"/>
+            <forward name="redirect" path="/AtividadeNovaDescricao.do" redirect="true"/>
+            <forward name="redirectAtividade" path="/Atividade.do" redirect="true"/>
+        </action>
+        
+        <action path="/RateioCentroCusto" name="rateioCentroCustoForm" type="br.org.flem.baprodutiva.web.struts.action.RateioCentroCustoAction" parameter="metodo">
+            <forward name="lista" path="/pages/rateioCentroCusto/lista.jsp"/>
+            <forward name="novo" path="/pages/rateioCentroCusto/novo.jsp"/>
+            <forward name="novoRateio" path="/pages/rateioCentroCusto/novoRateio.jsp"/>
+            <forward name="alterarRateio" path="/pages/rateioCentroCusto/alterarRateio.jsp"/>
+            <forward name="redirect" path="/RateioCentroCusto.do" redirect="true"/>
+        </action>
+        
+        <action path="/DespesaViagem" name="despesaViagemForm" type="br.org.flem.baprodutiva.web.struts.action.DespesaViagemAction" parameter="metodo">
+            <forward name="lista" path="/pages/despesaviagem/lista.jsp"/>
+            <forward name="detalhesPrestacaoContas" path="/pages/despesaviagem/detalhesPrestacaoContas.jsp"/>
+            <forward name="alterar" path="/pages/despesaviagem/alterar.jsp" />
+            <forward name="redirect" path="DespesaViagem.do" redirect="true"/>
+        </action>
+        
+        <action path="/Migrar" name="migrarForm" type="br.org.flem.baprodutiva.web.struts.action.MigrarAction" parameter="metodo" scope="request" validate="true">
+            <forward name="novo" path="/pages/migrar/novo.jsp" />
+            <forward name="redirect" path="Migrar.do" redirect="true"/>
+        </action>
+        
+        <action path="/Transferencia" name="transferenciaForm" type="br.org.flem.baprodutiva.web.struts.action.TransferenciaAction" parameter="metodo">
+            <forward name="lista" path="/pages/transferencias/lista.jsp"/>
+            <forward name="reconhecer" path="/pages/transferencias/reconhecer.jsp" />
+            <forward name="alterar" path="/pages/transferencias/alterar.jsp" />
+            <forward name="redirect" path="Transferencia.do" redirect="true"/>
+        </action>
+       
+
+    </action-mappings>
+
+    <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
+
+    <message-resources parameter="applicationresources"/>
+    
+    <!-- ========================= Tiles plugin ===============================-->
+    <plug-in className="org.apache.struts.tiles.TilesPlugin" >
+        <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />
+        <set-property property="moduleAware" value="true" />
+    </plug-in>
+
+    <!-- ========================= Validator plugin ================================= -->
+    <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+        <set-property property="pathnames" value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml"/>
+    </plug-in>
+
+</struts-config>
