@@ -4,6 +4,12 @@
 
 <hr>
 
+## v1.0.4-220408
+
+- Correção de erro de compatibilidade com biblioteca flem-commons.
+
+<br>
+
 ## v1.0.3-220408
 
 - Conversão do projeto de Maven para Gradle

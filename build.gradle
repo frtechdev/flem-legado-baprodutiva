@@ -35,18 +35,18 @@ dependencies {
     implementation 'javax.servlet:javax.servlet-api:3.1.0'
     implementation 'org.directwebremoting:dwr:3.0.2-RELEASE'
     implementation ('br.org.flem:flem-integracao:2.2.50'){
-        exclude group: 'br.org.flem', module: 'flem-commons'
+        //exclude group: 'br.org.flem', module: 'flem-commons'
     }
     implementation 'javax.persistence:persistence-api:1.0.2'
     implementation ('br.org.flem:flem-persistencia:1.2.1'){
-        exclude group: 'br.org.flem', module: 'flem-commons'
+        //exclude group: 'br.org.flem', module: 'flem-commons'
     }
     implementation 'org.quartz-scheduler:quartz:2.3.2'
     implementation 'org.apache.commons:commons-email:1.5'
     implementation 'org.slf4j:slf4j-api:1.6.6'
     implementation 'commons-logging:commons-logging:1.1'
     implementation ('br.org.flem:flem-web-struts:1.1.1'){
-        exclude group: 'br.org.flem', module: 'flem-commons'
+       //exclude group: 'br.org.flem', module: 'flem-commons'
     }
     implementation 'com.sun.jersey:jersey:0.8-ea'
     implementation 'org.hibernate:hibernate-c3p0:3.6.8.Final'
@@ -58,14 +58,14 @@ dependencies {
     implementation 'displaytag:displaytag-export-poi:1.2'
     implementation 'net.sourceforge.jexcelapi:jxl:2.6.12'
     implementation 'net.sourceforge.jtds:jtds:1.2.4'
-    implementation files('libs/flem-commons-1.2.3.jar')
     testImplementation 'junit:junit:3.8.2'
 }
 
 group = 'br.org.flem'
-version = '1.0.3-220408'
+version = '1.0.4-220408'
 description = 'baprodutiva'
 java.sourceCompatibility = JavaVersion.VERSION_1_6
+//EXECUTAR EM APACHE TOMCAT 8.5.78 >
 
 publishing {
     publications {
@@ -74,6 +74,7 @@ publishing {
         }
     }
 }
+
 
 tasks.withType(JavaCompile) {
     options.encoding = 'ISO-8859-1'

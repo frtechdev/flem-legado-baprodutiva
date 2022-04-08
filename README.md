@@ -6,7 +6,7 @@
 <a href="">[![Code Size](https://img.shields.io/github/languages/code-size/frtechdev/flem-legado-baprodutiva)](https://github.com/frtechdev/flem-legado-baprodutiva)</a>
 <a href="">[![Repo Size](https://img.shields.io/github/repo-size/frtechdev/flem-legado-baprodutiva)](https://github.com/frtechdev/flem-legado-baprodutiva)</a>
 <a href="">[![Last Commit](https://img.shields.io/github/last-commit/frtechdev/flem-legado-baprodutiva)](https://github.com/frtechdev/flem-legado-baprodutiva/)</a>
-<a href="">![Version](https://img.shields.io/badge/version-1.0.3-005bff) </a>
+<a href="">![Version](https://img.shields.io/badge/version-1.0.4-005bff) </a>
 
 </div>
 <hr>
