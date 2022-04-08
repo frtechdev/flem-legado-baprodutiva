@@ -4,13 +4,9 @@
 
 <hr>
 
-<div align="center">
+## v1.0.3-220408
 
-<a href="">[![Last Commit](https://img.shields.io/github/last-commit/frtechdev/flem-legado-baprodutiva)](https://github.com/frtechdev/flem-legado-baprodutiva/) </a>
-<a href="">![Version](https://img.shields.io/badge/version-1.0.2-005bff)</a>
-<br>
-
-</div>
+- Conversão do projeto de Maven para Gradle
 
 <br>
 
