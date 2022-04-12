@@ -4,6 +4,14 @@
 
 <hr>
 
+## v1.0.5-220412
+
+- Normalização da versão da build para o número de versão legado por razões de compatibilidade
+- Versionamento será feito pela pasta target
+- Ajustes em build.gradle
+
+<br>
+
 ## v1.0.4-220408
 
 - Correção de erro de compatibilidade com biblioteca flem-commons.
@@ -30,7 +38,7 @@
 - Adicionadas no pom.xml as seguintes bibliotecas para resolver problemas de dependência do Maven:
   - commons-email 1.5
   - commons-collections 3.2.1.redhat-7
-<br>
+    <br>
 
 ## Commit inicial
 
